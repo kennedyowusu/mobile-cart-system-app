@@ -4,6 +4,7 @@
  box-sizing: border-box;
  font-family: 'Roboto', sans-serif;
  color: #432000;
+ user-select: none;
 }
 
 .container {

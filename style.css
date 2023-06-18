@@ -2,10 +2,8 @@
  padding: 0;
  margin: 0;
  box-sizing: border-box;
-}
-
-body {
  font-family: 'Roboto', sans-serif;
+ color: #432000;
 }
 
 .container {
@@ -41,6 +39,10 @@ button {
  background-color: #AC485A;
 }
 
+button:hover {
+ background-color: #432000;
+}
+
 ul {
  display: flex;
  flex-wrap: wrap;
@@ -63,4 +65,5 @@ ul li {
 
 ul li:hover {
  box-shadow: 0px 1px 4px rgba(0,0,0,0.4);
+ background-color: #FFECC7;
 }

@@ -3,7 +3,7 @@ const appSettings = {
 }
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js';
-import { getDatabase, ref, push } from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js';
+import { getDatabase, ref, push, onValue } from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js';
 
 const app = initializeApp(appSettings);
 const database = getDatabase(app);
@@ -13,18 +13,32 @@ const inputBtn = document.getElementById('input-btn');
 const inputFieldElement = document.getElementById('input-field');
 const listElement = document.getElementById('shopping-list');
 
-function clearInputFieldElement() {
- inputFieldElement.value = '';
-}
+
 
 inputBtn.addEventListener('click', () => {
  let inputValue = inputFieldElement.value;
  push(shoppingListInDB, inputValue)
 
  clearInputFieldElement();
- appendItemToShoppingListElement(inputValue);
 
 });
+
+onValue(shoppingListInDB, (snapshot) => {
+ clearShoppingListElement();
+ snapshot.forEach((childSnapshot) => {
+  let childKey = childSnapshot.key;
+  let childData = childSnapshot.val();
+  appendItemToShoppingListElement(childData);
+ });
+});
+
+function clearShoppingListElement() {
+ listElement.innerHTML = '';
+}
+
+function clearInputFieldElement() {
+ inputFieldElement.value = '';
+}
 
 function appendItemToShoppingListElement(item) {
  listElement.innerHTML += `<li>${item}</li>`;

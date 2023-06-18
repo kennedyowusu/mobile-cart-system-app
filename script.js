@@ -31,11 +31,18 @@ inputBtn.addEventListener('click', () => {
 
 onValue(shoppingListInDB, (snapshot) => {
  clearShoppingListElement();
- snapshot.forEach((childSnapshot) => {
-  let childKey = childSnapshot.key;
-  let childData = childSnapshot.val();
-  appendItemToShoppingListElement(childData, childKey);
- });
+ if(snapshot.exists()) {
+  let data = snapshot.val();
+  let keys = Object.keys(data);
+  keys.forEach((key) => {
+   let item = data[key];
+   appendItemToShoppingListElement(item, key);
+  });
+ } else {
+  listElement.innerHTML = 'No data available';
+  return;
+ }
+
 });
 
 function clearShoppingListElement() {

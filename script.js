@@ -13,12 +13,19 @@ const inputBtn = document.getElementById('input-btn');
 const inputFieldElement = document.getElementById('input-field');
 const listElement = document.getElementById('shopping-list');
 
+function clearInputFieldElement() {
+ inputFieldElement.value = '';
+}
+
 inputBtn.addEventListener('click', () => {
  let inputValue = inputFieldElement.value;
  push(shoppingListInDB, inputValue)
 
- inputFieldElement.value = '';
-
- listElement.innerHTML += `<li>${inputValue}</li>`;
+ clearInputFieldElement();
+ appendItemToShoppingListElement(inputValue);
 
 });
+
+function appendItemToShoppingListElement(item) {
+ listElement.innerHTML += `<li>${item}</li>`;
+}

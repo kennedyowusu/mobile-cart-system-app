@@ -55,8 +55,12 @@ function clearInputFieldElement() {
 
 function appendItemToShoppingListElement(item, key) {
  let liElement = document.createElement('li');
- liElement.innerText = item;
- listElement.appendChild(liElement);
+ if(item === '') {
+  return;
+ } else {
+  liElement.innerHTML = item;
+  listElement.appendChild(liElement);
+ }
 
  liElement.addEventListener('click', () => {
   removeItemFromShoppingListElement(key);

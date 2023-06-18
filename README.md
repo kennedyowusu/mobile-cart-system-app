@@ -127,6 +127,6 @@ Please give a ⭐️ if you like this project! 🤝
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT]([./LICENSE](https://github.com/kennedyowusu/Group-Capstone-Project/blob/develop/LICENSE)) licensed.
+This project is [MIT]([./LICENSE](https://github.com/kennedyowusu/mobile-cart-system-app/blob/main/LICENSE)) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
